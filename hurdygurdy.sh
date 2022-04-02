@@ -1,25 +1,22 @@
+read -p "Enter string you want to find: " searched_string
 ## Variables ##
 list_of_folders_in_root=$(ls /)
 ## Functions ##
 check_content_of_folder(){
-    echo $1 "directory has:"
-    ls /$1
+    echo $forlders "directory has:"
+    ls /$folders
 }
 ## Main ##
 
-for items in $list_of_folders_in_root
+for folders in $list_of_folders_in_root
 do 
-if [[ $items = *srv* ]] || [[ $items = *proc* ]] || [[ $items = *mnt* ]] || [[ $items = *lib* ]] || [[ $items = *root* ]] || [[ $items = *lost+found* ]]; then
-    # echo "its $items directory and we are not interested in" $items
+if [[ $folders = *srv* ]] || [[ $folders = *proc* ]] || [[ $folders = *mnt* ]] || [[ $folders = *lib* ]] || [[ $folders = *root* ]] || [[ $folders = *lost+found* ]]; then
     continue
 else
-    if [[ -z $(ls /$items) ]]; then
-        echo "folder $items is empty"
-    # echo "We are checking content of ***$items*** directory and listing its files"
-
-    # echo $items "directory has:"
-    else # ls /$items
-        check_content_of_folder $items
+    if [[ -z $(ls /$folders) ]]; then
+        echo "folder $folders is EMPTY"
+    else 
+        check_content_of_folder $folders
     fi
 fi
     
